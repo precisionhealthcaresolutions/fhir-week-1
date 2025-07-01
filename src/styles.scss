@@ -219,3 +219,31 @@ pre {
     font-size: xx-large;
   }
 }
+
+.search-bar {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: lightsteelblue;
+  border: 1px solid;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.content {
+  margin: 1rem;
+  justify-content: center;
+}
+
+.modify-container {
+  width: 500px;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.center-div {
+  vertical-align: center;
+  horiz-align: center;
+}

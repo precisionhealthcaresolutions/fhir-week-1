@@ -35,8 +35,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync('noop'),
     provideAppInitializer(() => {
       // Load the config.json file (if not using, remove the next two lines or the entire provideAppInitializer section.
-//      const configService = inject(ConfigService);
-//      return configService.loadConfig();
+      const configService = inject(ConfigService);
+      return configService.loadConfig();
     }),
     {provide: ErrorHandler, useClass: ErrorHandlerService}
   ]

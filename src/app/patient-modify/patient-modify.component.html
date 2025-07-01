@@ -1,0 +1,28 @@
+<div class="modify-container flex-column flex-gap">
+  <div class="flex flex-center-items flex-gap flex-wrap">
+    <h1>
+      {{ fhirPatient.patient().patientId === '' ? 'Add' : 'Modify' }} Patient
+    </h1>
+    <span class="flex-fill"></span>
+    <button coButton="icon" (click)="fhirPatient.view.set('table')">
+      <mpage-icon>close</mpage-icon>
+    </button>
+  </div>
+
+  <div class="flex-column flex-gap">
+    <mpage-input label="Family Name" [(ngModel)]="fhirPatient.patient().familyName" [required]="true"/>
+    <mpage-input label="Given Name" [(ngModel)]="fhirPatient.patient().givenName" [required]="true"/>
+    <mpage-input type="date" label="Birth Date" [(ngModel)]="fhirPatient.patient().birthDate" [required]="true"
+                 [jsDate]="true"/>
+    <mpage-select [(ngModel)]="fhirPatient.patient().gender" [values]="genders" label="Gender"/>
+    <mpage-input label="Phone Number" [(ngModel)]="fhirPatient.patient().phoneNumber" [required]="true"/>
+  </div>
+
+  <div class="flex flex-gap">
+    <span class="flex-fill"></span>
+    <button coButton="raised" color="primary" (click)="savePatient()">Save Patient</button>
+    @if (fhirPatient.patient().patientId !== '') {
+      <button coButton="raised" color="warn" (click)="deletePatient()">Delete Patient</button>
+    }
+  </div>
+</div>

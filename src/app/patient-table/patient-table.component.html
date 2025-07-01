@@ -1,0 +1,31 @@
+<div class="search-bar flex flex-center-items flex-gap flex-wrap" [ngStyle]="tableWidth()">
+  Search Filters:
+  <mpage-input [(ngModel)]="lastNameSearch" label="Last Name" (ngModelChange)="search()"
+               [prefix]="{className: '',title: '','icon': 'person', 'button': false}"/>
+  <mpage-input [(ngModel)]="firstNameSearch" label="First Name" (ngModelChange)="search()"
+               [prefix]="{className: '',title: '','icon': 'person', 'button': false}"/>
+  <mpage-input [(ngModel)]="phoneSearch" label="Phone" (ngModelChange)="search()"
+               [prefix]="{className: '',title: '','icon': 'phone', 'button': false}"/>
+
+  <button coButton="raised" color="primary" title="Add New Patient" (click)="addNewPatient()">
+    <mpage-icon>person_add_alt</mpage-icon>
+  </button>
+
+  <div class="co-fit"></div>
+  @if (fhirPatient.previousLink() !== '') {
+    <button coButton="icon" title="Previous Page"
+            (click)="fhirPatient.loadPatients(fhirPatient.previousLink())">
+      <mpage-icon>chevron_left</mpage-icon>
+    </button>
+  }
+  @if (fhirPatient.nextLink() !== '') {
+    <button coButton="icon" title="Next Page"
+            (click)="fhirPatient.loadPatients(fhirPatient.nextLink())">
+      <mpage-icon>chevron_right</mpage-icon>
+    </button>
+  }
+</div>
+
+<mpage-table [data]="fhirPatient.patients()" [(columnConfig)]="colConfig" #table
+             (clickRow)="modifyPatient($event)"
+             [params]="{allowWheelScroll: false, showToolbar: false, allowColumnSort: false,columnFilter: false, autoResize: false}"/>

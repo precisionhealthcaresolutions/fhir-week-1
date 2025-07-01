@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mpage-developer-component-template": {
+    "fhir-week-1": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/mpage-developer-component-template",
+            "outputPath": "dist/fhir-week-1",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [],
@@ -88,10 +88,10 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mpage-developer-component-template:build:production"
+              "buildTarget": "fhir-week-1:build:production"
             },
             "development": {
-              "buildTarget": "mpage-developer-component-template:build:development"
+              "buildTarget": "fhir-week-1:build:development"
             }
           },
           "defaultConfiguration": "development"
